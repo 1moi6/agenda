@@ -1,0 +1,7 @@
+*.sqlite3
+.env
+agenda/migrations
+paciente/__pycache__
+paciente/migrations
+usuario/__pycache__
+usuario/migrations
