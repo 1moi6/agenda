@@ -1,6 +1,7 @@
 *.sqlite3
 .env
 agenda/migrations
+agenda/__pycache__
 paciente/__pycache__
 paciente/migrations
 usuario/__pycache__
