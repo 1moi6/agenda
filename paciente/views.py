@@ -129,14 +129,11 @@ class AgendaDia(generics.ListAPIView):
 
     def get_queryset(self):
         # Recupere a data de início e fim da requisição GET
-        data_inicio = self.request.query_params.get('data_inicio')
+        data_inicio = self.request.query_params.get('data_inicio') # type: ignore
         data_inicio = datetime.strptime(data_inicio, "%Y-%m-%d").date()
-        data_fim = self.request.query_params.get('data_fim')
+        data_fim = self.request.query_params.get('data_fim') # type: ignore
         data_fim = datetime.strptime(data_fim, "%Y-%m-%d").date()
-        print(data_fim,data_inicio,self.request.user)
-        # data_inicio = self.request.data['data_inicio']
-        # data_fim = self.request.data['data_fim']
-
+        
 
         # Filtrar pacientes com data de atendimento dentro do intervalo especificado
         queryset = ExameConsulta.objects.filter(data_agendamento__gte=data_inicio, data_agendamento__lte=data_fim,info_clinica=self.request.user.cnpj)

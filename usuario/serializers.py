@@ -28,7 +28,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         # Remover a confirmação de senha antes de criar o usuário
         validated_data.pop('password_confirmation', None)
 
-        user = CustomUser.objects.create_user(**validated_data)
+        user = CustomUser.objects.create_user(**validated_data) # type: ignore
         return user
 
 class AdmTokenPairSerializer(TokenObtainPairSerializer):
@@ -37,11 +37,11 @@ class AdmTokenPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         # Add custom claims
-        token['email'] = user.email
-        token['nome'] = user.first_name
-        token['sobrenome'] = user.last_name
-        token['clinica'] = user.clinica
-        token['cnpj'] = user.cnpj
+        token['email'] = user.email # type: ignore
+        token['nome'] = user.first_name # type: ignore
+        token['sobrenome'] = user.last_name # type: ignore
+        token['clinica'] = user.clinica # type: ignore
+        token['cnpj'] = user.cnpj # type: ignore
         # ...
 
         return token
