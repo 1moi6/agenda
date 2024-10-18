@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/api/', include('usuario.urls')),
     path('agendasis/api/', include('paciente.urls')),
-    path('', views.Testarotas, name='TestaRotas'),
+    # path('', views.Testarotas, name='TestaRotas'),
+    path('', include('frontend.urls')),
 ]
