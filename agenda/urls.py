@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from agenda import views
+from .views import SearchEntryView
 
 urlpatterns = [
+    path('gestaoagenda/api/', SearchEntryView.as_view(), name='search-entry'),
     path('admin/', admin.site.urls),
     path('auth/api/', include('usuario.urls')),
     path('agendasis/api/', include('paciente.urls')),

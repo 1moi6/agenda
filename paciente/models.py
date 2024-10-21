@@ -35,6 +35,7 @@ class ExameConsulta(models.Model):
     data_agendamento = models.DateField()
     hora_agendamento = models.TimeField()
     tipo = models.CharField(max_length=100,blank=True)
+    origem_agendamento = models.CharField(max_length=100,blank=True)
     medico = models.CharField(max_length=100,blank=True)
     data_checkin = models.DateField(blank=True,null=True)
     hora_checkin = models.TimeField(blank=True,null=True)
@@ -42,6 +43,7 @@ class ExameConsulta(models.Model):
     numcarteirinha = models.CharField(max_length=100,blank=True)
     validade = models.DateField(blank=True,null=True)
     observacoes = models.TextField(blank=True)
+    status = models.CharField(max_length=100,blank=True)
     info_clinica = models.CharField(max_length=20,blank=True)
     def __str__(self):
         return f"Exames e consultas de {self.paciente.nome}"

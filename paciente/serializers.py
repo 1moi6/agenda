@@ -22,7 +22,7 @@ class ExameConsultaSerializer2(serializers.ModelSerializer):
     paciente_info = PacienteSerializer2(source='paciente', read_only=True)
     class Meta:
         model = ExameConsulta
-        fields = ['paciente','id','data_agendamento', 'hora_agendamento', 'tipo', 'medico', 'data_checkin', 'hora_checkin', 'convenio', 'numcarteirinha', 'validade', 'observacoes', 'paciente_info']
+        fields = ['paciente','id','data_agendamento', 'hora_agendamento', 'tipo','origem_agendamento', 'medico', 'data_checkin', 'hora_checkin', 'convenio', 'numcarteirinha', 'validade', 'observacoes','status', 'paciente_info']
 
 
 
